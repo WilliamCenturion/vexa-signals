@@ -131,7 +131,7 @@ def get_candles(market):
         r = requests.get(
             f"{BASE_BG}/api/v2/mix/market/candles",
             params={"symbol": market["symbol"], "productType": "USDT-FUTURES",
-                    "granularity": "15m", "limit": "200"},
+                    "granularity": "15m", "limit": str(CANDLE_LIMIT)},
             headers=HEADERS, timeout=20
         )
         r.raise_for_status()
